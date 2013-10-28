@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 wukai. All rights reserved.
 //
 
+//需要在headerweather中添加一个状态圈
 #import "RightController.h"
 #import "JSON.h"
 #import "WeatherCell.h"
