@@ -53,7 +53,7 @@
 		[self addSubview:self.labelTemperature];
 //星期几
 		self.labelToday = [[UILabel alloc] initWithFrame:CGRectMake(45, 194, 51, 21)];
-		self.labelToday.text = @"星期一";
+		self.labelToday.text = self.strToday;//一个bug 
 
 		[self addSubview:self.labelToday];
 //温差
