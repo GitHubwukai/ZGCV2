@@ -9,6 +9,7 @@
 #import "LeftController.h"
 #import "FeedController.h"
 #import "DDMenuController.h"
+#import "CommonViewController.h"
 
 @interface LeftController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -17,14 +18,29 @@
 
 @implementation LeftController
 {
-	NSArray *_arrayMenuTitles;
+	/**
+	 *  菜单中section的标题
+	 */
+	NSArray *_arrayMenuSections;
+	/**
+	 *  保存菜单的信息
+	 */
+	NSDictionary * _dicMenus;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		_arrayMenuTitles = @[@"Home",@"门票",@"交通",@"住宿",@"攻略",@"附近景点"];
+		NSArray *arrayUsefulInfo = @[@"门票",@"交通",@"住宿",@"攻略",@"附近景点"];
+		NSArray *arrayuser = @[@"关于我们", @"评论",@"更新"];
+		NSArray *arrayPlace = @[@"坐禅谷"];
+		_arrayMenuSections = @[@"美景欣赏",@"实用信息", @"用户"];
+
+		_dicMenus = @{_arrayMenuSections[0]:arrayPlace,
+					  _arrayMenuSections[1]:arrayUsefulInfo,
+					  _arrayMenuSections[2]:arrayuser};
+
     }
     return self;
 }
@@ -51,11 +67,12 @@
 #pragma mark TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 1;
+	return _arrayMenuSections.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return _arrayMenuTitles.count;
+	return [[_dicMenus objectForKey:_arrayMenuSections[section]] count];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,26 +81,46 @@
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
 	}
-	cell.textLabel.text = _arrayMenuTitles[indexPath.row];
-	cell.textLabel.textColor = [UIColor whiteColor];
+	NSArray *temparray = [_dicMenus objectForKey:_arrayMenuSections[indexPath.section]];
+	NSString *string = [NSString stringWithString:temparray[indexPath.row]];
+	cell.textLabel.text = string;
+//	cell.textLabel.textColor = [UIColor whiteColor];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	cell.backgroundColor = [UIColor darkGrayColor];
+//	cell.backgroundColor = [UIColor darkGrayColor];
 	return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	DDMenuController *menuController = (DDMenuController *)((ZGCAppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
-	FeedController *controller = [[FeedController alloc] init];
-	controller.title = _arrayMenuTitles[indexPath.row];
-	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[menuController setRootController:navController animated:YES];
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	if ((indexPath.section == 1) && (indexPath.row == 2)) {
+		CommonViewController *controller = [[CommonViewController alloc] init];
+		controller.title = [_dicMenus objectForKey:_arrayMenuSections[indexPath.section]][indexPath.row];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		[menuController setRootController:navController animated:YES];
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+	}
+	else{
+		FeedController *controller = [[FeedController alloc] init];
+		controller.title = [_dicMenus objectForKey:_arrayMenuSections[indexPath.section]][indexPath.row];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		[menuController setRootController:navController animated:YES];
+		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	}
 }
 
 #pragma mark - TableViewDelegate
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-	return nil;
+	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 20)];
+	view.backgroundColor = [UIColor darkGrayColor];
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 2, 270, 16)];
+	label.backgroundColor = [UIColor clearColor];
+	label.text = _arrayMenuSections[section];
+	label.font = [UIFont systemFontOfSize:14];
+	[view addSubview:label];
+	return view;
 }
 @end

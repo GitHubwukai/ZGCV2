@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C8DC9C7181F91FA0006ACB5 /* CommonUseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8DC9C6181F91FA0006ACB5 /* CommonUseCell.m */; };
+		3C8DC9C9181F92330006ACB5 /* CommonUseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8DC9C8181F92330006ACB5 /* CommonUseCell.xib */; };
+		3C8DC9CE181F97690006ACB5 /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8DC9CC181F97690006ACB5 /* CommonViewController.m */; };
+		3C8DC9CF181F97690006ACB5 /* CommonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8DC9CD181F97690006ACB5 /* CommonViewController.xib */; };
 		3CFB8707181E0E1E00E24FC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB8706181E0E1E00E24FC2 /* Foundation.framework */; };
 		3CFB8709181E0E1E00E24FC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB8708181E0E1E00E24FC2 /* CoreGraphics.framework */; };
 		3CFB870B181E0E1E00E24FC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFB870A181E0E1E00E24FC2 /* UIKit.framework */; };
@@ -48,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C8DC9C5181F91FA0006ACB5 /* CommonUseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUseCell.h; sourceTree = "<group>"; };
+		3C8DC9C6181F91FA0006ACB5 /* CommonUseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUseCell.m; sourceTree = "<group>"; };
+		3C8DC9C8181F92330006ACB5 /* CommonUseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUseCell.xib; sourceTree = "<group>"; };
+		3C8DC9CB181F97690006ACB5 /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
+		3C8DC9CC181F97690006ACB5 /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
+		3C8DC9CD181F97690006ACB5 /* CommonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonViewController.xib; sourceTree = "<group>"; };
 		3CFB8703181E0E1E00E24FC2 /* ZCGV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZCGV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFB8706181E0E1E00E24FC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3CFB8708181E0E1E00E24FC2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +129,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C8DC9C4181F90E70006ACB5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				3C8DC9C5181F91FA0006ACB5 /* CommonUseCell.h */,
+				3C8DC9C6181F91FA0006ACB5 /* CommonUseCell.m */,
+				3C8DC9C8181F92330006ACB5 /* CommonUseCell.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		3C8DC9CA181F97470006ACB5 /* CommonViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3C8DC9CB181F97690006ACB5 /* CommonViewController.h */,
+				3C8DC9CC181F97690006ACB5 /* CommonViewController.m */,
+				3C8DC9CD181F97690006ACB5 /* CommonViewController.xib */,
+			);
+			name = CommonViewController;
+			sourceTree = "<group>";
+		};
 		3CFB86FA181E0E1E00E24FC2 = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +182,11 @@
 		3CFB870C181E0E1E00E24FC2 /* ZCGV2 */ = {
 			isa = PBXGroup;
 			children = (
+				3C8DC9CA181F97470006ACB5 /* CommonViewController */,
+				3C8DC9C4181F90E70006ACB5 /* views */,
 				3CFB8769181E50D400E24FC2 /* Third */,
 				3CFB8750181E0F6000E24FC2 /* Resources */,
-				3CFB873F181E0EB600E24FC2 /* Controllers */,
+				3CFB873F181E0EB600E24FC2 /* ThressMainViewControllers */,
 				3CFB8715181E0E1E00E24FC2 /* ZGCAppDelegate.h */,
 				3CFB8716181E0E1E00E24FC2 /* ZGCAppDelegate.m */,
 				3CFB8718181E0E1E00E24FC2 /* Images.xcassets */,
@@ -192,7 +224,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3CFB873F181E0EB600E24FC2 /* Controllers */ = {
+		3CFB873F181E0EB600E24FC2 /* ThressMainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				3CFB874D181E0F4D00E24FC2 /* DDMenuController.h */,
@@ -201,7 +233,7 @@
 				3CFB8745181E0F0400E24FC2 /* RightController */,
 				3CFB8741181E0EED00E24FC2 /* LeftController */,
 			);
-			name = Controllers;
+			name = ThressMainViewControllers;
 			sourceTree = "<group>";
 		};
 		3CFB8741181E0EED00E24FC2 /* LeftController */ = {
@@ -343,9 +375,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CFB8752181E0F6900E24FC2 /* nav_menu_icon@2x.png in Resources */,
+				3C8DC9CF181F97690006ACB5 /* CommonViewController.xib in Resources */,
 				3CFB8711181E0E1E00E24FC2 /* InfoPlist.strings in Resources */,
 				3CFB8784181E6C0600E24FC2 /* WeatherCell.xib in Resources */,
 				3CFB8759181E348900E24FC2 /* LeftController.xib in Resources */,
+				3C8DC9C9181F92330006ACB5 /* CommonUseCell.xib in Resources */,
 				3CFB8768181E470700E24FC2 /* RightController.xib in Resources */,
 				3CFB8719181E0E1E00E24FC2 /* Images.xcassets in Resources */,
 			);
@@ -375,10 +409,12 @@
 				3CFB8713181E0E1E00E24FC2 /* main.m in Sources */,
 				3CFB877B181E50F200E24FC2 /* SBJsonParser.m in Sources */,
 				3CFB874C181E0F4000E24FC2 /* FeedController.m in Sources */,
+				3C8DC9CE181F97690006ACB5 /* CommonViewController.m in Sources */,
 				3CFB8777181E50F200E24FC2 /* NSObject+SBJSON.m in Sources */,
 				3CFB8758181E348900E24FC2 /* LeftController.m in Sources */,
 				3CFB877A181E50F200E24FC2 /* SBJsonBase.m in Sources */,
 				3CFB8778181E50F200E24FC2 /* NSString+SBJSON.m in Sources */,
+				3C8DC9C7181F91FA0006ACB5 /* CommonUseCell.m in Sources */,
 				3CFB8717181E0E1E00E24FC2 /* ZGCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +537,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZCGV2/ZCGV2-Prefix.pch";
 				INFOPLIST_FILE = "ZCGV2/ZCGV2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -514,6 +551,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZCGV2/ZCGV2-Prefix.pch";
 				INFOPLIST_FILE = "ZCGV2/ZCGV2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -580,6 +618,7 @@
 				3CFB8731181E0E1E00E24FC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CFB8732181E0E1E00E24FC2 /* Build configuration list for PBXNativeTarget "ZCGV2Tests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +627,7 @@
 				3CFB8734181E0E1E00E24FC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
